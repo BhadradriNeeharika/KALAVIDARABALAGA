@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
+  
+  --color-heritage-amber: #b45309; /* amber-700 */
+  --color-accent-amber: #fbbf24; /* amber-400 */
+  --color-soft-orange: #fff7ed; /* orange-50 */
+  --color-deep-amber: #78350f; /* amber-900 */
+  --color-stone-body: #1c1917; /* stone-900 */
+}
+
+@layer base {
+  body {
+    @apply bg-soft-orange text-stone-body font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4 {
+    @apply font-serif;
+  }
+}
+
+.folk-card {
+  @apply bg-white rounded-3xl overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md border border-stone-200;
+}
+
+.traditional-underline {
+  text-decoration: underline;
+  text-underline-offset: 8px;
+  @apply decoration-accent-amber;
+}
+
+/* Custom grid for the Staggered Look */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: 20px;
+  gap: 16px;
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Kalavidara Balaga",
+  "description": "A professional marketplace and talent hub for local folk artists (Dollu Kunitha, Goravara Kunitha, etc.) to connect with event managers and sustain their craft year-round.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": []
+}

@@ -1,0 +1,45 @@
+{
+  "entities": {
+    "Troupe": {
+      "title": "Folk Art Troupe",
+      "description": "A group of traditional performers specializing in a specific art form.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "Name of the troupe" },
+        "artForm": { "type": "string", "description": "Type of art (e.g., Dollu Kunitha)" },
+        "leadContact": { "type": "string", "description": "Name of the lead artist" },
+        "contactPhone": { "type": "string", "description": "Phone number for bookings" },
+        "district": { "type": "string", "description": "District of origin in Karnataka" },
+        "bio": { "type": "string", "description": "Brief history and description of the troupe" },
+        "instruments": { "type": "array", "items": { "type": "string" }, "description": "List of instruments used" },
+        "equipment": { "type": "array", "items": { "type": "string" }, "description": "Available equipment (Sound system, lighting, etc.)" },
+        "performancePhotos": { "type": "array", "items": { "type": "string", "format": "uri" }, "description": "Gallery of photo URLs" },
+        "videoLinks": { "type": "array", "items": { "type": "string", "format": "uri" }, "description": "Simulated or actual video highlights" },
+        "ownerId": { "type": "string", "description": "UID of the user who manages this profile" }
+      },
+      "required": ["name", "artForm", "leadContact", "contactPhone", "district", "ownerId"]
+    },
+    "User": {
+      "title": "User Profile",
+      "description": "Basic user information and role selection.",
+      "type": "object",
+      "properties": {
+        "displayName": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "role": { "type": "string", "enum": ["artist", "manager", "admin"] },
+        "photoURL": { "type": "string", "format": "uri" }
+      },
+      "required": ["displayName", "role"]
+    }
+  },
+  "firestore": {
+    "/troupes/{troupeId}": {
+      "schema": "Troupe",
+      "description": "Public directory of folk art troupes."
+    },
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Private user profile data."
+    }
+  }
+}
